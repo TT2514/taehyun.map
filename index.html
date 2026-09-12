@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>TEAHYUN MAP</title>
+    <style>
+        /* 引入你的专属字体 */
+        @font-face {
+            font-family: 'YouthRegular';
+            src: url('YouthRegular.ttf') format('truetype'); /* 如果你的字体是woff2格式，把后缀改掉即可 */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #111;
+            height: 100vh;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 背景线条网格 */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(#eee 1px, transparent 1px);
+            background-size: 100% 32px;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        /* 长方形粉色核心区域（精准居中、扁平长方形比例、新粉色号） */
+        .hero-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 893px;
+            height: 383px;
+            background-color: #ffb3cf;
+            border: 1px solid #111;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* 极致紧凑、错落大小的解构主义标题，并应用你的专属字体 */
+        .hero-container h1 {
+            font-family: 'YouthRegular', "Times New Roman", Times, serif;
+            font-weight: normal;
+            line-height: 0.75; /* 极致压紧的上下行距 */
+            letter-spacing: -4px; /* 极度紧凑的字间距，让字母粘在一起 */
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translate(3px, 17px);
+        }
+
+        /* 让每个字母大小、形态产生错落变化 */
+        .line-1 {
+            display: flex;
+            align-items: flex-end;
+        }
+        .line-1 .t1 { font-size: 145px; }
+        .line-1 .a1 { font-size: 110px; }
+        .line-1 .e  { font-size: 125px; }
+        .line-1 .h  { font-size: 135px; }
+        .line-1 .y  { font-size: 115px; }
+        .line-1 .u  { font-size: 130px; }
+        .line-1 .n  { font-size: 120px; }
+
+        .line-2 {
+            display: flex;
+            align-items: flex-start;
+            margin-top: -15px; /* 负边距让两行进一步咬合交叠 */
+        }
+        .line-2 .m { font-size: 140px; }
+        .line-2 .a2{ font-size: 115px; }
+        .line-2 .p { font-size: 130px; }
+
+        /* KOREA 按钮 */
+        .btn-korea {
+            display: inline-block;
+            padding: 10px 32px;
+            background: #ffffff;
+            color: #111;
+            border: 1px solid #111;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .btn-korea:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        /* 左下角署名 */
+        .footer-note {
+            position: absolute;
+            bottom: 25px;
+            left: 40px;
+            font-size: 12px;
+            color: #111;
+            letter-spacing: 0.5px;
+            transform: translate(-17px, 16px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 中间横长方形粉色区域 -->
+    <div class="hero-container">
+        <h1>
+            <div class="line-1">
+                <span class="t1">T</span><span class="a1">A</span><span class="e">E</span><span class="h">H</span><span class="y">Y</span><span class="u">U</span><span class="n">N</span>
+            </div>
+            <div class="line-2">
+                <span class="m">M</span><span class="a2">A</span><span class="p">P</span>
+            </div>
+        </h1>
+        <a href="korea.html" class="btn-korea">KOREA</a>
+    </div>
+
+    <!-- 左下角署名 -->
+    <div class="footer-note">Made by TT</div>
+
+</body>
+</html>
