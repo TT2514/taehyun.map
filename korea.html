@@ -55,7 +55,6 @@
             background: #ffffff;
             display: flex;
             flex-direction: column;
-            position: relative;
         }
 
         .back-link {
@@ -73,22 +72,24 @@
             letter-spacing: 0.5px;
         }
 
-        /* 圆角卡片样式列表 */
+        /* 卡片基础样式：默认长条形，细黑边框，无粗硬阴影 */
         .spot-card {
-            display: flex;
             background: #fff;
+            border: 1px solid #111;
             border-radius: 14px;
             padding: 16px;
             margin-bottom: 16px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-            border: 1px solid #eaeaea;
-            transition: all 0.2s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            /* 丝滑过渡属性 */
+            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .spot-card:hover {
-            transform: translateY(-2px);
-            border-color: #111;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+        /* 未展开时的简略布局 */
+        .card-collapsed {
+            display: flex;
+            align-items: center;
         }
         .spot-thumb {
             width: 80px;
@@ -97,6 +98,7 @@
             object-fit: cover;
             background: #eee;
             flex-shrink: 0;
+            transition: all 0.35s ease;
         }
         .spot-info {
             margin-left: 16px;
@@ -113,56 +115,49 @@
             color: #666;
         }
 
-        /* 弹窗遮罩层：铺满右侧区域，点击外部空白可关闭 */
-        .detail-overlay {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(2px);
-            padding: 40px;
-            box-sizing: border-box;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-            animation: fadeIn 0.2s ease;
+        /* 详细内容区域（默认隐藏并收起） */
+        .card-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease;
         }
 
-        /* 纯细黑框卡片，彻底去掉粗黑硬阴影 */
-        .detail-card {
+        /* === 展开后的状态类 (.active) === */
+        .spot-card.active {
+            padding: 24px; /* 展开后变大宽敞 */
             background: #fff;
-            border: 1px solid #111;
-            border-radius: 16px;
-            padding: 24px;
-            width: 100%;
-            max-width: 480px;
-            box-shadow: none; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* 极其轻微干净的层级感 */
+        }
+        .spot-card.active .card-collapsed {
+            margin-bottom: 16px; /* 展开后标题和图片区与下方拉开距离 */
+        }
+        .spot-card.active .spot-thumb {
+            width: 120px; /* 展开后图片也可以微微变大呼吸 */
+            height: 120px;
+        }
+        .spot-card.active .card-details {
+            max-height: 400px; /* 预留足够的展开高度 */
+            opacity: 1;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .detail-header {
-            margin-bottom: 16px;
-        }
-        
+        /* 展开后的内部细节样式 */
         .detail-photos {
             display: flex;
             gap: 10px;
-            margin: 16px 0;
+            margin-bottom: 16px;
             overflow-x: auto;
         }
-        .detail-photos img {
+        .detail-photos div {
             width: 140px;
             height: 140px;
             border-radius: 8px;
-            object-fit: cover;
             background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
         }
         .detail-address {
             font-size: 14px;
@@ -182,7 +177,7 @@
         .map-btn:hover { background: #333; }
     </style>
 </head>
-<body>
+<body onclick="handleBodyClick(event)">
 
     <!-- 左侧地图区 -->
     <div class="map-section">
@@ -191,93 +186,87 @@
             <span style="font-size: 12px; color: #999;">后续可替换为真实的韩国矢量地图</span>
         </div>
         <!-- 示例地图点 -->
-        <div class="map-pin" style="top: 45%; left: 48%;" onclick="showDetail('spot1')"></div>
-        <div class="map-pin" style="top: 65%; left: 32%;" onclick="showDetail('spot2')"></div>
+        <div class="map-pin" style="top: 45%; left: 48%;" onclick="event.stopPropagation(); expandCard('card1')"></div>
+        <div class="map-pin" style="top: 65%; left: 32%;" onclick="event.stopPropagation(); expandCard('card2')"></div>
     </div>
 
-    <!-- 右侧列表与详情区 -->
+    <!-- 右侧列表区 -->
     <div class="content-section">
         <a href="index.html" class="back-link">← 返回首页</a>
         
-        <!-- 列表视图 -->
-        <div id="listView">
-            <h1>KOREA SPOTS</h1>
-            
-            <!-- 卡片 1 -->
-            <div class="spot-card" onclick="showDetail('spot1')">
-                <div class="spot-thumb" style="background: #ddd;"></div>
+        <h1>KOREA SPOTS</h1>
+        
+        <!-- 卡片 1 -->
+        <div class="spot-card" id="card1" onclick="expandCard('card1')">
+            <div class="card-collapsed">
+                <div class="spot-thumb"></div>
                 <div class="spot-info">
                     <h3>某某潮流咖啡馆</h3>
                     <p>首尔特别市江南区...</p>
                 </div>
             </div>
+            <div class="card-details">
+                <div class="detail-photos">
+                    <div>现场照片1</div>
+                    <div>同款照片2</div>
+                </div>
+                <p class="detail-address">
+                    <strong>详细地址：</strong>首尔特别市江南区岛山大路 123<br><br>
+                    <strong>打卡说明：</strong>姜太显在某次Vlog中出现过的同款咖啡馆，店内招牌拿铁很有名。
+                </p>
+                <a href="https://maps.google.com" target="_blank" class="map-btn" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+            </div>
+        </div>
 
-            <!-- 卡片 2 -->
-            <div class="spot-card" onclick="showDetail('spot2')">
-                <div class="spot-thumb" style="background: #ddd;"></div>
+        <!-- 卡片 2 -->
+        <div class="spot-card" id="card2" onclick="expandCard('card2')">
+            <div class="card-collapsed">
+                <div class="spot-thumb"></div>
                 <div class="spot-info">
                     <h3>汉江公园同款长椅</h3>
                     <p>首尔永登浦区汝矣岛洞...</p>
                 </div>
             </div>
-        </div>
-
-        <!-- 详细信息弹窗 (点击外侧遮罩即可缩回) -->
-        <div id="detailView" class="detail-overlay" onclick="handleOutsideClick(event)">
-            <div class="detail-card">
-                <div class="detail-header">
-                    <h2 id="detailTitle" style="font-size: 20px;">地点名称</h2>
-                </div>
+            <div class="card-details">
                 <div class="detail-photos">
-                    <div style="width:140px; height:140px; background:#ddd; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#666;">现场照片1</div>
-                    <div style="width:140px; height:140px; background:#ccc; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#666;">同款照片2</div>
+                    <div>现场照片1</div>
+                    <div>同款照片2</div>
                 </div>
-                <p class="detail-address" id="detailDesc">
-                    <strong>详细地址：</strong>首尔特别市江南区...<br>
-                    <strong>打卡说明：</strong>姜太显在某次Vlog或直播中出现过的同款取景地。
+                <p class="detail-address">
+                    <strong>详细地址：</strong>首尔永登浦区汝矣东路 330<br><br>
+                    <strong>打卡说明：</strong>散步直拍同款取景地，傍晚去可以看到非常漂亮的汉江日落。
                 </p>
-                <a href="https://maps.google.com" target="_blank" class="map-btn" id="detailLink">打开 Google Maps 导航 ↗</a>
+                <a href="https://maps.google.com" target="_blank" class="map-btn" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
             </div>
         </div>
 
     </div>
 
     <script>
-        // 模拟不同地点的详细数据
-        const spotData = {
-            'spot1': {
-                title: '某某潮流咖啡馆',
-                address: '首尔特别市江南区岛山大路 123',
-                desc: '姜太显在某次Vlog中出现过的同款咖啡馆，店内招牌拿铁很有名。'
-            },
-            'spot2': {
-                title: '汉江公园同款长椅',
-                address: '首尔永登浦区汝矣东路 330',
-                desc: '散步直拍同款取景地，傍晚去可以看到非常漂亮的汉江日落。'
-            }
-        };
+        // 点击特定卡片时，切换展开状态；如果点别的卡片，则让其它卡片先收起
+        function expandCard(cardId) {
+            event.stopPropagation(); // 阻止冒泡到背景
+            const selectedCard = document.getElementById(cardId);
+            
+            // 检查当前卡片是不是已经展开了
+            const isActive = selectedCard.classList.contains('active');
 
-        function showDetail(spotId) {
-            const data = spotData[spotId];
-            if(data) {
-                document.getElementById('detailTitle').innerText = data.title;
-                document.getElementById('detailDesc').innerHTML = `<strong>详细地址：</strong>${data.address}<br><br><strong>打卡说明：</strong>${data.desc}`;
+            // 先收起页面上所有的卡片
+            document.querySelectorAll('.spot-card').forEach(card => {
+                card.classList.remove('active');
+            });
+
+            // 如果原本没展开，现在就把它展开；如果原本就是展开的，则相当于点击收起
+            if (!isActive) {
+                selectedCard.classList.add('active');
             }
-            // 显示半透明遮罩弹窗
-            document.getElementById('detailView').style.display = 'flex';
         }
 
-        function hideDetail() {
-            // 隐藏弹窗
-            document.getElementById('detailView').style.display = 'none';
-        }
-
-        // 点击外侧遮罩关闭弹窗
-        function handleOutsideClick(event) {
-            const overlay = document.getElementById('detailView');
-            if (event.target === overlay) {
-                hideDetail();
-            }
+        // 点击页面任何空白处（除了卡片本身），自动收回所有展开的卡片
+        function handleBodyClick(event) {
+            document.querySelectorAll('.spot-card').forEach(card => {
+                card.classList.remove('active');
+            });
         }
     </script>
 
