@@ -5,6 +5,8 @@
     <title>Korea - Taehyun Map</title>
     <!-- 引入外部样式文件 -->
     <link rel="stylesheet" href="style.css">
+    <!-- Leaflet 地图样式 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         /* 补充复制地址按钮及粉色视频按钮的轻量级内联样式，可直接整合进 style.css */
         .copy-addr-btn {
@@ -34,11 +36,9 @@
 <body onclick="handleBodyClick(event)">
 
     <!-- 左侧地图区 -->
-    <div class="map-section">
-        <div class="map-placeholder-box">
-            [ 韩国地图图片占位 ]<br>
-            <span style="font-size: 12px; color: #999;">后续可替换为真实的韩国矢量地图</span>
-        </div>
+<div class="map-section" id="map">
+    <!-- 原来的占位盒子整段删掉，Leaflet 会自动在这个容器里生成地图 -->
+</div>
         <!-- 示例地图点 -->
         <div class="map-pin" style="top: 45%; left: 48%;" onclick="event.stopPropagation(); expandCard('card1')"></div>
         <div class="map-pin" style="top: 55%; left: 35%;" onclick="event.stopPropagation(); expandCard('card2')"></div>
@@ -524,7 +524,10 @@
                 console.error('复制失败', err);
             });
         }
-    </script>
-    <script src="main.js"></script>
+    <!-- Leaflet 地图核心库 -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- 你的主脚本文件 -->
+<script src="main.js"></script>
 </body>
 </html>
