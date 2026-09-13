@@ -34,14 +34,14 @@
             opacity: 0.6;
         }
 
-        /* 长方形粉色核心区域 */
+        /* 长方形粉色核心区域（适度加大，给大标题和按钮留足呼吸空间） */
         .hero-container {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 893px;
-            height: 383px;
+            width: 1020px;
+            height: 440px;
             background-color: #ffb3cf;
             border: 1px solid #111;
             display: flex;
@@ -52,46 +52,46 @@
             padding: 30px;
         }
 
-        /* 标题整体放大、极度紧凑 */
+        /* 标题整体放大、撑满你画的红框范围 */
         .hero-container h1 {
             font-family: 'YouthRegular', "Times New Roman", Times, serif;
             font-weight: normal;
-            line-height: 0.7; 
-            letter-spacing: -6px; /* 进一步收紧字间距 */
-            margin-bottom: 22px; /* 调整与下方按钮的距离 */
+            line-height: 0.68; 
+            letter-spacing: -8px; /* 紧凑字间距，让视觉更有张力 */
+            margin-bottom: 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            transform: translate(3px, 5px);
+            transform: translate(4px, 5px);
         }
 
-        /* 第一行：TAEHYUN (放大字号) */
+        /* 第一行：TAEHYUN (放大到符合红框宽度) */
         .line-1 {
             display: flex;
             align-items: flex-end;
         }
-        .line-1 .t1 { font-size: 175px; }
-        .line-1 .a1 { font-size: 135px; }
-        .line-1 .e  { font-size: 150px; }
-        .line-1 .h  { font-size: 165px; }
-        .line-1 .y  { font-size: 140px; }
-        .line-1 .u  { font-size: 160px; }
-        .line-1 .n  { font-size: 145px; }
+        .line-1 .t1 { font-size: 210px; }
+        .line-1 .a1 { font-size: 160px; }
+        .line-1 .e  { font-size: 180px; }
+        .line-1 .h  { font-size: 195px; }
+        .line-1 .y  { font-size: 165px; }
+        .line-1 .u  { font-size: 190px; }
+        .line-1 .n  { font-size: 175px; }
 
-        /* 第二行：MAP (放大字号，并通过负边距和第一行紧紧咬合) */
+        /* 第二行：MAP (去掉多余的单引号，恢复纯正MAP) */
         .line-2 {
             display: flex;
             align-items: flex-start;
-            margin-top: -22px; 
+            margin-top: -26px; /* 让两行紧密咬合 */
         }
-        .line-2 .m { font-size: 170px; }
-        .line-2 .a2{ font-size: 140px; }
-        .line-2 .p { font-size: 155px; }
+        .line-2 .m { font-size: 200px; }
+        .line-2 .a2{ font-size: 165px; }
+        .line-2 .p { font-size: 185px; }
 
-        /* KOREA 按钮位置下移、更清爽 */
+        /* KOREA 按钮保持在下方合理间距 */
         .btn-korea {
             display: inline-block;
-            padding: 9px 30px;
+            padding: 10px 34px;
             background: #ffffff;
             color: #111;
             border: 1px solid #111;
@@ -127,7 +127,7 @@
                 <span class="t1">T</span><span class="a1">A</span><span class="e">E</span><span class="h">H</span><span class="y">Y</span><span class="u">U</span><span class="n">N</span>
             </div>
             <div class="line-2">
-                <span class="m">M</span><span class="a2">A'</span><span class="p">P</span>
+                <span class="m">M</span><span class="a2">A</span><span class="p">P</span>
             </div>
         </h1>
         <a href="korea.html" class="btn-korea">KOREA</a>
