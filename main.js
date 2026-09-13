@@ -3,10 +3,10 @@ const map = L.map('map', {
     zoomControl: false 
 }).setView([37.5665, 126.9780], 11);
 
-// 加载浅色复古底图
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+// 使用完全免费、无任何 API 水印的干净底图
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: '&copy; OpenStreetMap contributors & CARTO'
+    attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
 // 2. 所有打卡点的经纬度与对应卡片 ID 映射（共21个点）
