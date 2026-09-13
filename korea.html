@@ -39,11 +39,6 @@
 <div class="map-section" id="map">
     <!-- 原来的占位盒子整段删掉，Leaflet 会自动在这个容器里生成地图 -->
 </div>
-        <!-- 示例地图点 -->
-        <div class="map-pin" style="top: 45%; left: 48%;" onclick="event.stopPropagation(); expandCard('card1')"></div>
-        <div class="map-pin" style="top: 55%; left: 35%;" onclick="event.stopPropagation(); expandCard('card2')"></div>
-        <div class="map-pin" style="top: 35%; left: 60%;" onclick="event.stopPropagation(); expandCard('card3')"></div>
-    </div>
 
     <!-- 右侧列表区 -->
     <div class="content-section">
@@ -513,7 +508,6 @@
         function copyText(elementId) {
             const text = document.getElementById(elementId).innerText;
             navigator.clipboard.writeText(text).then(() => {
-                // 可以加个简单的反馈，比如按钮文字临时变一下
                 const btn = event.target;
                 const originalText = btn.innerText;
                 btn.innerText = '✅ 已复制';
@@ -524,10 +518,12 @@
                 console.error('复制失败', err);
             });
         }
-    <!-- Leaflet 地图核心库 -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    </script> <!-- 注意这里补上了闭合标签 -->
 
-<!-- 你的主脚本文件 -->
-<script src="main.js"></script>
+    <!-- Leaflet 地图核心库 -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- 你的主脚本文件 -->
+    <script src="main.js"></script>
 </body>
 </html>
