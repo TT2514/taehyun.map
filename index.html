@@ -15,12 +15,26 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
             color: #111;
             height: 100vh;
             display: flex;
             position: relative;
             overflow: hidden;
+            
+            /* 动态背景图基础设置：铺满屏幕、居中显示 */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 0.5s ease-in-out;
+        }
+
+        /* 背景图上的柔和遮罩，保证文字和粉色框超级显眼 */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255, 255, 255, 0.15); /* 极淡的通透遮罩 */
+            z-index: -1;
         }
 
         /* 背景线条网格 */
@@ -28,13 +42,14 @@
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(#eee 1px, transparent 1px);
+            background-image: linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
             background-size: 100% 32px;
-            z-index: -1;
-            opacity: 0.6;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.4;
         }
 
-        /* 长方形粉色核心区域（适度加大，给大标题和按钮留足呼吸空间） */
+        /* 长方形粉色核心区域 */
         .hero-container {
             position: absolute;
             top: 50%;
@@ -50,14 +65,16 @@
             align-items: center;
             text-align: center;
             padding: 30px;
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* 增加一点轻微立体阴影，让卡片在背景上跳出来 */
         }
 
-        /* 标题整体放大、撑满你画的红框范围 */
+        /* 标题整体放大 */
         .hero-container h1 {
             font-family: 'YouthRegular', "Times New Roman", Times, serif;
             font-weight: normal;
             line-height: 0.68; 
-            letter-spacing: -8px; /* 紧凑字间距，让视觉更有张力 */
+            letter-spacing: -8px; 
             margin-bottom: 25px;
             display: flex;
             flex-direction: column;
@@ -65,7 +82,7 @@
             transform: translate(4px, 5px);
         }
 
-        /* 第一行：TAEHYUN (放大到符合红框宽度) */
+        /* 第一行：TAEHYUN */
         .line-1 {
             display: flex;
             align-items: flex-end;
@@ -78,17 +95,17 @@
         .line-1 .u  { font-size: 190px; }
         .line-1 .n  { font-size: 175px; }
 
-        /* 第二行：MAP (去掉多余的单引号，恢复纯正MAP) */
+        /* 第二行：MAP */
         .line-2 {
             display: flex;
             align-items: flex-start;
-            margin-top: -26px; /* 让两行紧密咬合 */
+            margin-top: -26px; 
         }
         .line-2 .m { font-size: 200px; }
         .line-2 .a2{ font-size: 165px; }
         .line-2 .p { font-size: 185px; }
 
-        /* KOREA 按钮保持在下方合理间距 */
+        /* KOREA 按钮 */
         .btn-korea {
             display: inline-block;
             padding: 10px 34px;
@@ -115,6 +132,8 @@
             color: #111;
             letter-spacing: 0.5px;
             transform: translate(-17px, 16px);
+            z-index: 2;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -135,6 +154,16 @@
 
     <!-- 左下角署名 -->
     <div class="footer-note">Made by TT</div>
+
+    <script>
+        // 根据本地时间自动切换白天/夜晚背景图
+        const currentHour = new Date().getHours();
+        // 6:00 到 18:00 判定为白天，其余为夜晚
+        const isDayTime = currentHour >= 6 && currentHour < 18;
+        
+        const bgImageUrl = isDayTime ? 'images/bg-day.jpg' : 'images/bg-night.jpg';
+        document.body.style.backgroundImage = `url('${bgImageUrl}')`;
+    </script>
 
 </body>
 </html>
