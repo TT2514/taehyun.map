@@ -72,7 +72,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* 卡片基础样式：默认长条形，细黑边框，无粗硬阴影 */
+        /* 卡片基础样式：细黑边框，清爽无粗阴影 */
         .spot-card {
             background: #fff;
             border: 1px solid #111;
@@ -82,7 +82,6 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            /* 丝滑过渡属性 */
             transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
@@ -115,37 +114,66 @@
             color: #666;
         }
 
-        /* 详细内容区域（默认隐藏并收起） */
+        /* 详细内容区域（默认收起） */
         .card-details {
             max-height: 0;
             opacity: 0;
             overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease;
+            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+            position: relative;
         }
 
-        /* === 展开后的状态类 (.active) === */
+        /* === 展开后的状态 (.active) === */
         .spot-card.active {
-            padding: 24px; /* 展开后变大宽敞 */
+            padding: 24px;
             background: #fff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* 极其轻微干净的层级感 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
         }
         .spot-card.active .card-collapsed {
-            margin-bottom: 16px; /* 展开后标题和图片区与下方拉开距离 */
-        }
-        .spot-card.active .spot-thumb {
-            width: 120px; /* 展开后图片也可以微微变大呼吸 */
-            height: 120px;
+            margin-bottom: 20px;
         }
         .spot-card.active .card-details {
-            max-height: 400px; /* 预留足够的展开高度 */
+            max-height: 800px; /* 给予充足高度防止截断 */
             opacity: 1;
         }
 
-        /* 展开后的内部细节样式 */
+        /* 右上角导航按钮 */
+        .map-btn-top {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: #fff;
+            color: #111;
+            border: 1px solid #111;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+        .map-btn-top:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        /* 重新调整后的内部排版：文字在上，图片在下 */
+        .detail-text-group {
+            margin-bottom: 20px;
+            padding-right: 90px; /* 留出右上角按钮的空间，防止文字和按钮撞车 */
+        }
+        .detail-address {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        
+        /* 现场照片在下方横向排列 */
         .detail-photos {
             display: flex;
             gap: 10px;
-            margin-bottom: 16px;
             overflow-x: auto;
         }
         .detail-photos div {
@@ -158,23 +186,8 @@
             justify-content: center;
             font-size: 12px;
             color: #666;
+            flex-shrink: 0;
         }
-        .detail-address {
-            font-size: 14px;
-            color: #444;
-            margin-bottom: 16px;
-            line-height: 1.5;
-        }
-        .map-btn {
-            display: inline-block;
-            background: #111;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 13px;
-        }
-        .map-btn:hover { background: #333; }
     </style>
 </head>
 <body onclick="handleBodyClick(event)">
@@ -206,15 +219,20 @@
                 </div>
             </div>
             <div class="card-details">
+                <!-- 右上角导航按钮 -->
+                <a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                
+                <!-- 文字在上 -->
+                <div class="detail-text-group">
+                    <p class="detail-address"><strong>详细地址：</strong>首尔特别市江南区岛山大路 123</p>
+                    <p class="detail-address"><strong>打卡说明：</strong>姜太显在某次Vlog中出现过的同款咖啡馆，店内招牌拿铁很有名。</p>
+                </div>
+
+                <!-- 现场照片在下 -->
                 <div class="detail-photos">
                     <div>现场照片1</div>
                     <div>同款照片2</div>
                 </div>
-                <p class="detail-address">
-                    <strong>详细地址：</strong>首尔特别市江南区岛山大路 123<br><br>
-                    <strong>打卡说明：</strong>姜太显在某次Vlog中出现过的同款咖啡馆，店内招牌拿铁很有名。
-                </p>
-                <a href="https://maps.google.com" target="_blank" class="map-btn" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
             </div>
         </div>
 
@@ -228,41 +246,44 @@
                 </div>
             </div>
             <div class="card-details">
+                <!-- 右上角导航按钮 -->
+                <a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                
+                <!-- 文字在上 -->
+                <div class="detail-text-group">
+                    <p class="detail-address"><strong>详细地址：</strong>首尔永登浦区汝矣东路 330</p>
+                    <p class="detail-address"><strong>打卡说明：</strong>散步直拍同款取景地，傍晚去可以看到非常漂亮的汉江日落。</p>
+                </div>
+
+                <!-- 现场照片在下 -->
                 <div class="detail-photos">
                     <div>现场照片1</div>
                     <div>同款照片2</div>
                 </div>
-                <p class="detail-address">
-                    <strong>详细地址：</strong>首尔永登浦区汝矣东路 330<br><br>
-                    <strong>打卡说明：</strong>散步直拍同款取景地，傍晚去可以看到非常漂亮的汉江日落。
-                </p>
-                <a href="https://maps.google.com" target="_blank" class="map-btn" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
             </div>
         </div>
 
     </div>
 
     <script>
-        // 点击特定卡片时，切换展开状态；如果点别的卡片，则让其它卡片先收起
+        // 展开/收起核心逻辑
         function expandCard(cardId) {
-            event.stopPropagation(); // 阻止冒泡到背景
+            event.stopPropagation();
             const selectedCard = document.getElementById(cardId);
-            
-            // 检查当前卡片是不是已经展开了
             const isActive = selectedCard.classList.contains('active');
 
-            // 先收起页面上所有的卡片
+            // 关闭其他卡片
             document.querySelectorAll('.spot-card').forEach(card => {
                 card.classList.remove('active');
             });
 
-            // 如果原本没展开，现在就把它展开；如果原本就是展开的，则相当于点击收起
+            // 切换当前卡片状态
             if (!isActive) {
                 selectedCard.classList.add('active');
             }
         }
 
-        // 点击页面任何空白处（除了卡片本身），自动收回所有展开的卡片
+        // 点击页面空白处收起所有卡片
         function handleBodyClick(event) {
             document.querySelectorAll('.spot-card').forEach(card => {
                 card.classList.remove('active');
