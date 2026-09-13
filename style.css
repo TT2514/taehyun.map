@@ -1,4 +1,4 @@
-﻿* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: #fff;
@@ -24,7 +24,6 @@ body {
     color: #666;
     font-size: 16px;
 }
-/* 地图上的打卡实心圆点 */
 .map-pin {
     position: absolute;
     width: 14px;
@@ -66,7 +65,7 @@ h1 {
     letter-spacing: 0.5px;
 }
 
-/* 卡片基础样式：细黑边框，定位基准点 */
+/* 卡片基础样式 */
 .spot-card {
     background: #fff;
     border: 1px solid #111;
@@ -74,7 +73,7 @@ h1 {
     padding: 16px;
     margin-bottom: 16px;
     cursor: pointer;
-    position: relative; /* 绝对定位按钮的锚点 */
+    position: relative;
     overflow: hidden;
     transition: transform 0.25s ease, box-shadow 0.25s ease, padding 0.3s ease;
 }
@@ -88,10 +87,8 @@ h1 {
     width: 80px;
     height: 80px;
     border-radius: 10px;
-    object-fit: cover;
     background: #eee;
     flex-shrink: 0;
-    transition: all 0.3s ease;
 }
 .spot-info {
     margin-left: 16px;
@@ -108,7 +105,7 @@ h1 {
     color: #666;
 }
 
-/* 详细内容区域：默认完全隐藏且高度为0，解决不丝滑问题 */
+/* 详细内容区域：默认完全隐藏 */
 .card-details {
     max-height: 0;
     opacity: 0;
@@ -126,12 +123,12 @@ h1 {
     margin-bottom: 20px;
 }
 .spot-card.active .card-details {
-    max-height: 500px; /* 撑开足够空间 */
+    max-height: 800px; /* 增大高度，确保21个卡片里的长内容能完全展开 */
     opacity: 1;
     visibility: visible;
 }
 
-/* 右上角导航按钮：绝对定位牢牢锁定在右上角，默认黑底白字 */
+/* 右上角导航按钮 */
 .map-btn-top {
     position: absolute;
     top: 24px;
@@ -146,17 +143,13 @@ h1 {
     transition: background 0.2s ease, transform 0.1s ease;
     z-index: 10;
 }
-.map-btn-top:hover {
-    background: #333; /* 鼠标放上去变深 */
-}
-.map-btn-top:active {
-    transform: scale(0.96);
-}
+.map-btn-top:hover { background: #333; }
+.map-btn-top:active { transform: scale(0.96); }
 
-/* 排版：文字在上，右侧留出空隙防遮挡按钮 */
+/* 文字在上 */
 .detail-text-group {
     margin-bottom: 20px;
-    padding-right: 120px; /* 给右上角的导航按钮留出充足空间 */
+    padding-right: 120px;
 }
 .detail-address {
     font-size: 14px;
@@ -165,7 +158,7 @@ h1 {
     margin-bottom: 8px;
 }
 
-/* 现场照片在下方横向排列 */
+/* 现场照片在下方 */
 .detail-photos {
     display: flex;
     gap: 10px;
