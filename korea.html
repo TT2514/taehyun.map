@@ -72,7 +72,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* 卡片基础样式：细黑边框，清爽无粗阴影 */
+        /* 卡片基础样式：细黑边框，定位基准点 */
         .spot-card {
             background: #fff;
             border: 1px solid #111;
@@ -80,9 +80,9 @@
             padding: 16px;
             margin-bottom: 16px;
             cursor: pointer;
-            position: relative;
+            position: relative; /* 绝对定位按钮的锚点 */
             overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, padding 0.3s ease;
         }
 
         /* 未展开时的简略布局 */
@@ -97,7 +97,7 @@
             object-fit: cover;
             background: #eee;
             flex-shrink: 0;
-            transition: all 0.35s ease;
+            transition: all 0.3s ease;
         }
         .spot-info {
             margin-left: 16px;
@@ -114,54 +114,55 @@
             color: #666;
         }
 
-        /* 详细内容区域（默认收起） */
+        /* 详细内容区域：默认完全隐藏且高度为0，解决不丝滑问题 */
         .card-details {
             max-height: 0;
             opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
-            position: relative;
+            visibility: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0.35s ease;
         }
 
         /* === 展开后的状态 (.active) === */
         .spot-card.active {
-            padding: 24px;
+            padding: 28px 24px 24px 24px;
             background: #fff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
         }
         .spot-card.active .card-collapsed {
             margin-bottom: 20px;
         }
         .spot-card.active .card-details {
-            max-height: 800px; /* 给予充足高度防止截断 */
+            max-height: 500px; /* 撑开足够空间 */
             opacity: 1;
+            visibility: visible;
         }
 
-        /* 右上角导航按钮 */
+        /* 右上角导航按钮：绝对定位牢牢锁定在右上角，默认黑底白字 */
         .map-btn-top {
             position: absolute;
             top: 24px;
             right: 24px;
-            background: #fff;
-            color: #111;
-            border: 1px solid #111;
-            padding: 6px 14px;
-            border-radius: 20px;
+            background: #111;
+            color: #fff;
+            padding: 7px 14px;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 12px;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: background 0.2s ease, transform 0.1s ease;
             z-index: 10;
         }
         .map-btn-top:hover {
-            background: #111;
-            color: #fff;
+            background: #333; /* 鼠标放上去变深 */
+        }
+        .map-btn-top:active {
+            transform: scale(0.96);
         }
 
-        /* 重新调整后的内部排版：文字在上，图片在下 */
+        /* 排版：文字在上，右侧留出空隙防遮挡按钮 */
         .detail-text-group {
             margin-bottom: 20px;
-            padding-right: 90px; /* 留出右上角按钮的空间，防止文字和按钮撞车 */
+            padding-right: 120px; /* 给右上角的导航按钮留出充足空间 */
         }
         .detail-address {
             font-size: 14px;
@@ -289,6 +290,10 @@
                 card.classList.remove('active');
             });
         }
+    </script>
+
+</body>
+</html>
     </script>
 
 </body>
