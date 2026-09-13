@@ -17,9 +17,6 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 1;
-    
-    /* 核心魔法：用 CSS 滤镜把原本彩色的地图一键变成高冷低饱和灰，且绝对没有水印！ */
-    filter: grayscale(100%) contrast(85%) brightness(105%);
 }
 
 .map-placeholder-box {
@@ -248,3 +245,7 @@ h1 {
     background-color: #e57c96 !important;
 }
 .video-btn-top:active { transform: scale(0.96); }
+/* 只让地图的背景瓦片（图片）变成高级低饱和灰，粉色圆点保持绝对高亮！ */
+.leaflet-tile-pane {
+    filter: grayscale(100%) contrast(85%) brightness(105%);
+}
