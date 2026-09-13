@@ -153,18 +153,16 @@
         <a href="korea.html" class="btn-korea">KOREA</a>
     </div>
 
+    <!-- 左下角署名 -->
+    <div class="footer-note">Made by TT</div>
+
     <script>
-        // 自动检测本地时间切换背景图（调用 image 文件夹内的图片）
+        // 自动检测本地时间切换背景图（调用单数 image 文件夹内的图片）
         const currentHour = new Date().getHours();
         const isDayTime = currentHour >= 6 && currentHour < 18;
         
         const bgImageUrl = isDayTime ? 'image/bg-day.jpg' : 'image/bg-night.jpg';
         document.body.style.backgroundImage = `url('${bgImageUrl}')`;
-
-        // 如果是夜晚，自动给 body 加上 night-mode 标记，让署名变成白色
-        if (!isDayTime) {
-            document.body.classList.add('night-mode');
-        }
     </script>
 
 </body>
