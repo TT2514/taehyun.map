@@ -49,14 +49,14 @@
             opacity: 0.5;
         }
 
-        /* 粉色核心区域：保持精致的扁平长方形比例，不被撑大 */
+        /* 粉色核心区域：按照你的最新可视化调整尺寸 */
         .hero-container {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 893px;
-            height: 383px;
+            width: 722px;
+            height: 280px;
             background-color: #ffb3cf;
             border: 1px solid #111;
             display: flex;
@@ -69,7 +69,7 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.12);
         }
 
-        /* 标题大小：刚好完美容纳在粉框内 */
+        /* 主标题：独立控制大小与位置 */
         .hero-container h1 {
             font-family: 'YouthRegular', "Times New Roman", Times, serif;
             font-weight: normal;
@@ -79,7 +79,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transform: translate(3px, 8px);
+            transform: translate(-4px, 16px);
         }
 
         /* 第一行：TAEHYUN */
@@ -105,7 +105,7 @@
         .line-2 .a2{ font-size: 125px; }
         .line-2 .p { font-size: 140px; }
 
-        /* KOREA 按钮 */
+        /* KOREA 按钮：按最新偏移量定位 */
         .btn-korea {
             display: inline-block;
             padding: 9px 30px;
@@ -117,6 +117,7 @@
             letter-spacing: 1.5px;
             font-weight: 500;
             transition: all 0.2s ease;
+            transform: translate(-12px, -15px);
         }
         .btn-korea:hover {
             background: #111;
@@ -156,7 +157,7 @@
     <div class="footer-note">Made by TT</div>
 
     <script>
-        // 自动检测本地时间切换背景图（现在对应单数 image 文件夹）
+        // 自动检测本地时间切换背景图（调用单数 image 文件夹内的图片）
         const currentHour = new Date().getHours();
         const isDayTime = currentHour >= 6 && currentHour < 18;
         
