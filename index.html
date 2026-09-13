@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
         /* 引入你的专属字体 */
         @font-face {
             font-family: 'YouthRegular';
-            src: url('YouthRegular.ttf') format('truetype'); /* 如果你的字体是woff2格式，把后缀改掉即可 */
+            src: url('YouthRegular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -34,7 +34,7 @@
             opacity: 0.6;
         }
 
-        /* 长方形粉色核心区域（精准居中、扁平长方形比例、新粉色号） */
+        /* 长方形粉色核心区域 */
         .hero-container {
             position: absolute;
             top: 50%;
@@ -52,50 +52,51 @@
             padding: 30px;
         }
 
-        /* 极致紧凑、错落大小的解构主义标题，并应用你的专属字体 */
+        /* 标题整体放大、极度紧凑 */
         .hero-container h1 {
             font-family: 'YouthRegular', "Times New Roman", Times, serif;
             font-weight: normal;
-            line-height: 0.75; /* 极致压紧的上下行距 */
-            letter-spacing: -4px; /* 极度紧凑的字间距，让字母粘在一起 */
-            margin-bottom: 24px;
+            line-height: 0.7; 
+            letter-spacing: -6px; /* 进一步收紧字间距 */
+            margin-bottom: 22px; /* 调整与下方按钮的距离 */
             display: flex;
             flex-direction: column;
             align-items: center;
-            transform: translate(3px, 17px);
+            transform: translate(3px, 5px);
         }
 
-        /* 让每个字母大小、形态产生错落变化 */
+        /* 第一行：TAEHYUN (放大字号) */
         .line-1 {
             display: flex;
             align-items: flex-end;
         }
-        .line-1 .t1 { font-size: 145px; }
-        .line-1 .a1 { font-size: 110px; }
-        .line-1 .e  { font-size: 125px; }
-        .line-1 .h  { font-size: 135px; }
-        .line-1 .y  { font-size: 115px; }
-        .line-1 .u  { font-size: 130px; }
-        .line-1 .n  { font-size: 120px; }
+        .line-1 .t1 { font-size: 175px; }
+        .line-1 .a1 { font-size: 135px; }
+        .line-1 .e  { font-size: 150px; }
+        .line-1 .h  { font-size: 165px; }
+        .line-1 .y  { font-size: 140px; }
+        .line-1 .u  { font-size: 160px; }
+        .line-1 .n  { font-size: 145px; }
 
+        /* 第二行：MAP (放大字号，并通过负边距和第一行紧紧咬合) */
         .line-2 {
             display: flex;
             align-items: flex-start;
-            margin-top: -15px; /* 负边距让两行进一步咬合交叠 */
+            margin-top: -22px; 
         }
-        .line-2 .m { font-size: 140px; }
-        .line-2 .a2{ font-size: 115px; }
-        .line-2 .p { font-size: 130px; }
+        .line-2 .m { font-size: 170px; }
+        .line-2 .a2{ font-size: 140px; }
+        .line-2 .p { font-size: 155px; }
 
-        /* KOREA 按钮 */
+        /* KOREA 按钮位置下移、更清爽 */
         .btn-korea {
             display: inline-block;
-            padding: 10px 32px;
+            padding: 9px 30px;
             background: #ffffff;
             color: #111;
             border: 1px solid #111;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 1.5px;
             font-weight: 500;
             transition: all 0.2s ease;
@@ -126,7 +127,7 @@
                 <span class="t1">T</span><span class="a1">A</span><span class="e">E</span><span class="h">H</span><span class="y">Y</span><span class="u">U</span><span class="n">N</span>
             </div>
             <div class="line-2">
-                <span class="m">M</span><span class="a2">A</span><span class="p">P</span>
+                <span class="m">M</span><span class="a2">A'</span><span class="p">P</span>
             </div>
         </h1>
         <a href="korea.html" class="btn-korea">KOREA</a>
