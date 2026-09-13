@@ -5,6 +5,31 @@
     <title>Korea - Taehyun Map</title>
     <!-- 引入外部样式文件 -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 补充复制地址按钮及粉色视频按钮的轻量级内联样式，可直接整合进 style.css */
+        .copy-addr-btn {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 2px 6px;
+            font-size: 11px;
+            color: #555;
+            background: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            vertical-align: middle;
+            transition: all 0.2s;
+        }
+        .copy-addr-btn:hover {
+            background: #e2e2e2;
+            color: #000;
+        }
+        .video-btn-top {
+            background-color: #fc8bab !important;
+            color: #fff !important;
+        }
+    </style>
 </head>
 <body onclick="handleBodyClick(event)">
 
@@ -43,11 +68,11 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.google.com/?q=Seoul+Coffee+Ikseon+Main" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                    <a href="https://www.bilibili.com/video/BV1gk4y1r7kZ/?p=6&share_source=copy_web&vd_source=dc002ebbc5f06ef5e2216eae8cf51139" target="_blank" class="video-btn-top" onclick="event.stopPropagation()">物料视频 ↗</a>
+                    <a href="https://maps.google.com/?q=Seoul+Coffee+Ikseon+Main" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
+                    <a href="https://www.bilibili.com/video/BV1gk4y1r7kZ/?p=6&share_source=copy_web&vd_source=dc002ebbc5f06ef5e2216eae8cf51139" target="_blank" class="video-btn-top" onclick="event.stopPropagation()">相关物料视频</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>166-31 Ikseon-dong, Jongno District, Seoul (서울 종로구 익선동 166-31)</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr1">166-31 Ikseon-dong, Jongno District, Seoul (서울 종로구 익선동 166-31)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr1')">📋 复制地址</button></p>
                     <p class="detail-address"><strong>同款菜单：</strong>酸奶/草莓冰淇淋，黄油面包。</p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
@@ -65,10 +90,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/baESacVS3SjkuAEt6" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/baESacVS3SjkuAEt6" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>서울특별시 강남구 도산대로38길 27 (논현동)</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr2">서울특별시 강남구 도산대로38길 27 (논현동)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr2')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -85,10 +110,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.google.com/?q=Dosan-daero+16-gil+13-20+Gangnam-gu+Seoul" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.google.com/?q=Dosan-daero+16-gil+13-20+Gangnam-gu+Seoul" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>Seoul Gangnam-gu Dosan-daero 16-gil 13-20</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr3">Seoul Gangnam-gu Dosan-daero 16-gil 13-20</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr3')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -105,10 +130,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/RuYZ58hCW5yYQzXU7" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/RuYZ58hCW5yYQzXU7" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>31 Gangnam-daero 120-gil, Nonhyeon-dong, Gangnam District, Seoul (서울 강남구 강남대로120길 31 1층쪼가리)</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr4">31 Gangnam-daero 120-gil, Nonhyeon-dong, Gangnam District, Seoul (서울 강남구 강남대로120길 31 1층쪼가리)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr4')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -125,10 +150,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/E7jFrDesrM3Ba3aQ8" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/E7jFrDesrM3Ba3aQ8" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>Seoul, Gangnam District, Dosan-daero 94-gil, 33 (101호, 103호)</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr5">Seoul, Gangnam District, Dosan-daero 94-gil, 33 (101호, 103호)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr5')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -145,10 +170,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/kxGnTQUUeT2o8njk8" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/kxGnTQUUeT2o8njk8" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>97-8 논현2동 Gangnam District, Seoul (서울 강남구 언주로150길 24 1층)</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr6">97-8 논현2동 Gangnam District, Seoul (서울 강남구 언주로150길 24 1층)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr6')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -165,10 +190,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.google.com/?q=%EC%84%9C%EC%9A%B8+%EA%B0%95%EB%82%A8%EA%B5%AC+%EC%95%95%EA%B5%AC%EC%A0%95%EB%8F%99+386" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.google.com/?q=%EC%84%9C%EC%9A%B8+%EA%B0%95%EB%82%A8%EA%B5%AC+%EC%95%95%EA%B5%AC%EC%A0%95%EB%8F%99+386" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>서울 강남구 압구정동 386 (蚕院汉江公园3停车场旁边的运动场)</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr7">서울 강남구 압구정동 386 (蚕院汉江公园3停车场旁边的运动场)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr7')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -185,10 +210,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/GYZgdkpk7tsvrbWs8" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/GYZgdkpk7tsvrbWs8" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>172 Chungmin-ro, Songpa District, Seoul</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr8">172 Chungmin-ro, Songpa District, Seoul</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr8')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -205,10 +230,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.google.com/?q=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C+%EA%B4%91%EC%A7%84%EA%B5%AC+%EC%9E%90%EC%96%91%EB%8F%99+615-35" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.google.com/?q=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C+%EA%B4%91%EC%A7%84%EA%B5%AC+%EC%9E%90%EC%96%91%EB%8F%99+615-35" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>首尔特别市 广津区 紫阳洞 615-35</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr9">首尔特别市 广津区 紫阳洞 615-35</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr9')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -225,10 +250,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/FkmgvXkTMenW7AZ17" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/FkmgvXkTMenW7AZ17" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>105 Namsangongwon-gil, Yongsan District, Seoul (N서울타워)</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr10">105 Namsangongwon-gil, Yongsan District, Seoul (N서울타워)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr10')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -245,12 +270,12 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/Lx1DmYrz19aCCJFDA" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                    <a href="https://www.bilibili.com/video/BV1kVJDzLESL/?share_source=copy_web&vd_source=dc002ebbc5f06ef5e2216eae8cf51139" target="_blank" class="video-btn-top" onclick="event.stopPropagation()">📺 点击直达物料视频 ↗</a>
+                    <a href="https://maps.app.goo.gl/Lx1DmYrz19aCCJFDA" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
+                    <a href="https://www.bilibili.com/video/BV1kVJDzLESL/?share_source=copy_web&vd_source=dc002ebbc5f06ef5e2216eae8cf51139" target="_blank" class="video-btn-top" onclick="event.stopPropagation()">相关物料视频</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>首尔特别市 龙山区厚岩洞 440-5</p>
-                    <p class="detail-address"><strong>说明：</strong>【新员工 姜T显 | 因为是T人 所以很熟练🍰 | EP.5】</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr11">首尔特别市 龙山区厚岩洞 440-5</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr11')">📋 复制地址</button></p>
+                    <p class="detail-address"><strong>相关信息：</strong>【新员工 姜T显 | 因为是T人 所以很熟练🍰 | EP.5】</p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -267,11 +292,11 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/cgtJgKqjfSv4CfRt5" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/cgtJgKqjfSv4CfRt5" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>72-11 Hapjeong-dong, Mapo-gu, Seoul (당인리 발전소 공원)</p>
-                    <p class="detail-address"><strong>说明：</strong>10CM x 姜太显 To Reach You 拍摄地</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr12">72-11 Hapjeong-dong, Mapo-gu, Seoul (당인리 발전소 공원)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr12')">📋 复制地址</button></p>
+                    <p class="detail-address"><strong>相关信息：</strong>10CM x 姜太显 To Reach You 拍摄地</p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -288,11 +313,11 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.google.com/?q=Yeouido+Hangang+Park+Seoul" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                    <a href="https://www.bilibili.com/video/BV1PaKweHEa7/?share_source=copy_web&vd_source=dc002ebbc5f06ef5e2216eae8cf51139" target="_blank" class="video-btn-top" onclick="event.stopPropagation()">📺 点击直达物料视频 ↗</a>
+                    <a href="https://maps.google.com/?q=Yeouido+Hangang+Park+Seoul" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
+                    <a href="https://www.bilibili.com/video/BV1PaKweHEa7/?share_source=copy_web&vd_source=dc002ebbc5f06ef5e2216eae8cf51139" target="_blank" class="video-btn-top" onclick="event.stopPropagation()">相关物料视频</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>首尔永登浦区 汝矣岛汉江公园（坐船/骑单车）</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr13">首尔永登浦区 汝矣岛汉江公园（坐船/骑单车）</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr13')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -309,12 +334,12 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/1MdMpMYTM4uL3HTa9" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                    <a href="https://www.bilibili.com/video/BV1nHHHzPEYM/?share_source=copy_web&vd_source=dc002ebbc5f06ef5e2216eae8cf51139" target="_blank" class="video-btn-top" onclick="event.stopPropagation()">📺 点击直达物料视频 ↗</a>
+                    <a href="https://maps.app.goo.gl/1MdMpMYTM4uL3HTa9" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
+                    <a href="https://www.bilibili.com/video/BV1nHHHzPEYM/?share_source=copy_web&vd_source=dc002ebbc5f06ef5e2216eae8cf51139" target="_blank" class="video-btn-top" onclick="event.stopPropagation()">相关物料视频</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>60-84 Hoegi-dong, Dongdaemun District, Seoul (东大门区回基洞 60-84)</p>
-                    <p class="detail-address"><strong>说明：</strong>【前往浪漫的时代…☆ 2005年 ⓣHYUN™ | EP.6】</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr14">60-84 Hoegi-dong, Dongdaemun District, Seoul (东大门区回基洞 60-84)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr14')">📋 复制地址</button></p>
+                    <p class="detail-address"><strong>相关信息：</strong>【前往浪漫的时代…☆ 2005年 ⓣHYUN™ | EP.6】</p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -337,12 +362,12 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/qJQo1a5pr9biv1nH8" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                    <a href="https://www.bilibili.com/video/BV1c4421c7Z4/?share_source=copy_web&vd_source=dc002ebbc5f06ef5e2216eae8cf51139" target="_blank" class="video-btn-top" onclick="event.stopPropagation()">📺 点击直达物料视频 ↗</a>
+                    <a href="https://maps.app.goo.gl/qJQo1a5pr9biv1nH8" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
+                    <a href="https://www.bilibili.com/video/BV1c4421c7Z4/?share_source=copy_web&vd_source=dc002ebbc5f06ef5e2216eae8cf51139" target="_blank" class="video-btn-top" onclick="event.stopPropagation()">相关物料视频</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>184-2 Dongmak-ri, Hwado-myeon, Ganghwa-gun, Incheon (talkraphy)</p>
-                    <p class="detail-address"><strong>说明：</strong>【TXT-LOG】 5周年纪念江华岛旅行</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr15">184-2 Dongmak-ri, Hwado-myeon, Ganghwa-gun, Incheon (talkraphy)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr15')">📋 复制地址</button></p>
+                    <p class="detail-address"><strong>相关信息：</strong>【TXT-LOG】 5周年纪念江华岛旅行</p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -365,11 +390,11 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/TULQpXCpKheCe7Er9" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/TULQpXCpKheCe7Er9" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>Songjeonggudeokpo-gil, Haeundae-gu, Busan, 韩国</p>
-                    <p class="detail-address"><strong>打卡说明：</strong>已改名（换店家），黄色椅子同款照片已经没有了。</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr16">Songjeonggudeokpo-gil, Haeundae-gu, Busan, 韩国</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr16')">📋 复制地址</button></p>
+                    <p class="detail-address"><strong>相关信息：</strong>已改名（换店家），黄色椅子同款照片已经没有了。</p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -386,10 +411,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/HCGQZd9kQ8BTLgN56" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/HCGQZd9kQ8BTLgN56" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>1415-27 Jung-dong, Haeundae-gu, Busan, 韩国</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr17">1415-27 Jung-dong, Haeundae-gu, Busan, 韩国</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr17')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -412,10 +437,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/4amPPwaLDYR7pXnL7" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/4amPPwaLDYR7pXnL7" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>강원 속초시 영랑동 등대해수욕장</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr18">강원 속초시 영랑동 등대해수욕장</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr18')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -432,10 +457,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/8pkf617bn89ZJXtr6" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/8pkf617bn89ZJXtr6" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>18 Jungangsijang-ro 6-gil, Sokcho-si, Gangwon-do, 韩国 (강원특별자치도 속초시 중앙시장로6길 18)</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr19">18 Jungangsijang-ro 6-gil, Sokcho-si, Gangwon-do, 韩国 (강원특별자치도 속초시 중앙시장로6길 18)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr19')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -452,10 +477,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/NrWoLSHgKe7yYf229" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/NrWoLSHgKe7yYf229" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>186 Haeoreum-ro, Sokcho-si, Gangwon-do, 韩国 (강원특별자치도 속초시 해오름로 186 青湖洞)</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr20">186 Haeoreum-ro, Sokcho-si, Gangwon-do, 韩国 (강원특별자치도 속초시 해오름로 186 青湖洞)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr20')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -472,10 +497,10 @@
             </div>
             <div class="card-details">
                 <div class="card-btn-group">
-                    <a href="https://maps.app.goo.gl/a2andN4DAKquVfeh9" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
+                    <a href="https://maps.app.goo.gl/a2andN4DAKquVfeh9" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航</a>
                 </div>
                 <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>327 Gwangwang-ro, Sokcho-si, Gangwon-do, 韩国 (강원특별자치도 속초시 관광로 327 노학동)</p>
+                    <p class="detail-address"><strong>详细地址：</strong><span id="addr21">327 Gwangwang-ro, Sokcho-si, Gangwon-do, 韩国 (강원특별자치도 속초시 관광로 327 노학동)</span><button class="copy-addr-btn" onclick="event.stopPropagation(); copyText('addr21')">📋 复制地址</button></p>
                 </div>
                 <div class="detail-photos"><div>现场照片1</div><div>同款照片2</div></div>
             </div>
@@ -483,6 +508,23 @@
 
     </div>
 
+    <!-- 复制功能脚本 -->
+    <script>
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                // 可以加个简单的反馈，比如按钮文字临时变一下
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = '✅ 已复制';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                }, 1500);
+            }).catch(err => {
+                console.error('复制失败', err);
+            });
+        }
+    </script>
     <script src="main.js"></script>
 </body>
 </html>
