@@ -59,10 +59,31 @@ body {
 }
 .back-link:hover { color: #111; }
 
+/* 主标题 */
 h1 {
     font-size: 24px;
     margin-bottom: 24px;
     letter-spacing: 0.5px;
+}
+
+/* 城市小标题样式（同行显示、字号比主标题小、带精致的下划线分隔） */
+.city-section-title {
+    margin-top: 28px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #111;
+    padding-bottom: 8px;
+}
+.city-section-title h2 {
+    font-size: 17px; /* 比主标题(24px)小，层级更分明 */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #111;
+}
+.city-section-title .city-zh {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    margin-left: 6px; /* 英文和中文同行并保持一点间距 */
 }
 
 /* 卡片基础样式 */
@@ -74,7 +95,6 @@ h1 {
     margin-bottom: 16px;
     cursor: pointer;
     position: relative;
-    /* 【已修改】删掉了 overflow: hidden，避免把展开内容强行剪切 */
     transition: box-shadow 0.25s ease;
 }
 
@@ -105,13 +125,9 @@ h1 {
     color: #666;
 }
 
-/* 详细内容区域：默认完全隐藏 */
+/* 详细内容区域：默认直接不显示 */
 .card-details {
-    max-height: 0;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden; /* 把隐藏裁剪交给内层的 details 容器 */
-    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0.35s ease;
+    display: none;
 }
 
 /* === 展开后的状态 (.active) === */
@@ -124,9 +140,7 @@ h1 {
     margin-bottom: 20px;
 }
 .spot-card.active .card-details {
-    max-height: 800px; /* 足够容纳地址和图片的高度 */
-    opacity: 1;
-    visibility: visible;
+    display: block;
 }
 
 /* 右上角导航按钮 */
@@ -176,22 +190,4 @@ h1 {
     font-size: 12px;
     color: #666;
     flex-shrink: 0;
-}
-/* 城市分类标题样式 */
-.city-section-title {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    margin-bottom: 16px;
-    border-bottom: 2px solid #111;
-    padding-bottom: 6px;
-}
-.city-section-title h2 {
-    font-size: 20px;
-    letter-spacing: 1px;
-    font-weight: 700;
-}
-.city-subtitle {
-    font-size: 14px;
-    color: #666;
 }
