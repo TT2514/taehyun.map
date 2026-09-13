@@ -177,3 +177,21 @@ h1 {
     color: #666;
     flex-shrink: 0;
 }
+/* 城市分类标题样式 */
+.city-section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #111;
+    padding-bottom: 6px;
+}
+.city-section-title h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+.city-subtitle {
+    font-size: 14px;
+    color: #666;
+}
