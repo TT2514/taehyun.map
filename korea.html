@@ -25,12 +25,11 @@
         <a href="index.html" class="back-link">← 返回首页</a>
         
         <!-- 大标题 -->
-        <h1 style="margin-bottom: 30px;">TAEHYUN MAP - KOREA</h1>
+        <h1>TAEHYUN MAP - KOREA</h1>
         
-        <!-- ==================== 1. SEOUL（首尔）部分 ==================== -->
+        <!-- ==================== 1. SEOUL（首尔）部分（共15个卡片） ==================== -->
         <div class="city-section-title">
-            <h2>SEOUL</h2>
-            <span class="city-subtitle">首尔</span>
+            <h2>SEOUL <span class="city-zh">首尔</span></h2>
         </div>
 
         <!-- 卡片 1 -->
@@ -77,35 +76,88 @@
             </div>
         </div>
 
-        <!-- 卡片 3 ~ 15 (首尔剩余的打卡点) -->
-        <!-- 为节省篇幅，此处保留结构，你可以把原本的 3~15号卡片原封不动放这里 -->
+        <!-- 卡片 3 -->
         <div class="spot-card" id="card3" onclick="expandCard('card3')">
-            <div class="card-collapsed">
-                <div class="spot-thumb"></div>
-                <div class="spot-info"><h3>待补充打卡点 03</h3><p>首尔特别市麻浦区...</p></div>
-            </div>
-            <div class="card-details">
-                <a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                <div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市麻浦区某某路 45</p></div>
-            </div>
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 03</h3><p>首尔特别市麻浦区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市麻浦区某某路 45</p></div></div>
         </div>
-        <!-- (中间卡片 4 到 14 略，保持你原有的卡片代码即可，总计首尔15个) -->
+
+        <!-- 卡片 4 -->
+        <div class="spot-card" id="card4" onclick="expandCard('card4')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 04</h3><p>首尔特别市龙山区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市龙山区待填地址 4</p></div></div>
+        </div>
+
+        <!-- 卡片 5 -->
+        <div class="spot-card" id="card5" onclick="expandCard('card5')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 05</h3><p>首尔特别市钟路区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市钟路区待填地址 5</p></div></div>
+        </div>
+
+        <!-- 卡片 6 -->
+        <div class="spot-card" id="card6" onclick="expandCard('card6')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 06</h3><p>首尔特别市城东区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市城东区待填地址 6</p></div></div>
+        </div>
+
+        <!-- 卡片 7 -->
+        <div class="spot-card" id="card7" onclick="expandCard('card7')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 07</h3><p>首尔特别市松파区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市松파区待填地址 7</p></div></div>
+        </div>
+
+        <!-- 卡片 8 -->
+        <div class="spot-card" id="card8" onclick="expandCard('card8')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 08</h3><p>首尔特别市中区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市中区待填地址 8</p></div></div>
+        </div>
+
+        <!-- 卡片 9 -->
+        <div class="spot-card" id="card9" onclick="expandCard('card9')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 09</h3><p>首尔特别市西大门区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市西大门区待填地址 9</p></div></div>
+        </div>
+
+        <!-- 卡片 10 -->
+        <div class="spot-card" id="card10" onclick="expandCard('card10')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 10</h3><p>首尔特别市广津区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市广津区待填地址 10</p></div></div>
+        </div>
+
+        <!-- 卡片 11 -->
+        <div class="spot-card" id="card11" onclick="expandCard('card11')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 11</h3><p>首尔特别市麻浦区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市麻浦区待填地址 11</p></div></div>
+        </div>
+
+        <!-- 卡片 12 -->
+        <div class="spot-card" id="card12" onclick="expandCard('card12')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 12</h3><p>首尔特别市江南区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市江南区待填地址 12</p></div></div>
+        </div>
+
+        <!-- 卡片 13 -->
+        <div class="spot-card" id="card13" onclick="expandCard('card13')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 13</h3><p>首尔特别市瑞草区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市瑞草区待填地址 13</p></div></div>
+        </div>
+
+        <!-- 卡片 14 -->
+        <div class="spot-card" id="card14" onclick="expandCard('card14')">
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 14</h3><p>首尔特别市钟路区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市钟路区待填地址 14</p></div></div>
+        </div>
+
+        <!-- 卡片 15 -->
         <div class="spot-card" id="card15" onclick="expandCard('card15')">
-            <div class="card-collapsed">
-                <div class="spot-thumb"></div>
-                <div class="spot-info"><h3>待补充打卡点 15</h3><p>首尔特别市中区...</p></div>
-            </div>
-            <div class="card-details">
-                <a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                <div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市中区待填地址 15</p></div>
-            </div>
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>待补充打卡点 15</h3><p>首尔特别市中区...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>首尔特别市中区待填地址 15</p></div></div>
         </div>
 
 
-        <!-- ==================== 2. BUSAN（釜山）部分 ==================== -->
-        <div class="city-section-title" style="margin-top: 40px;">
-            <h2>BUSAN</h2>
-            <span class="city-subtitle">釜山</span>
+        <!-- ==================== 2. BUSAN（釜山）部分（共2个卡片） ==================== -->
+        <div class="city-section-title">
+            <h2>BUSAN <span class="city-zh">釜山</span></h2>
         </div>
 
         <!-- 卡片 16 -->
@@ -121,11 +173,6 @@
                 <a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
                 <div class="detail-text-group">
                     <p class="detail-address"><strong>详细地址：</strong>釜山广域市海云台区海云台海边路 1</p>
-                    <p class="detail-address"><strong>打卡说明：</strong>釜山行同款海景取景地。</p>
-                </div>
-                <div class="detail-photos">
-                    <div>现场照片1</div>
-                    <div>同款照片2</div>
                 </div>
             </div>
         </div>
@@ -143,108 +190,38 @@
                 <a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
                 <div class="detail-text-group">
                     <p class="detail-address"><strong>详细地址：</strong>釜山广域市水营区广安海边路 2</p>
-                    <p class="detail-address"><strong>打卡说明：</strong>能看到广安大桥夜景的咖啡厅。</p>
-                </div>
-                <div class="detail-photos">
-                    <div>现场照片1</div>
-                    <div>同款照片2</div>
                 </div>
             </div>
         </div>
 
 
-        <!-- ==================== 3. SOKCHO（束草）部分 ==================== -->
-        <div class="city-section-title" style="margin-top: 40px;">
-            <h2>SOKCHO</h2>
-            <span class="city-subtitle">束草</span>
+        <!-- ==================== 3. SOKCHO（束草）部分（共4个卡片） ==================== -->
+        <div class="city-section-title">
+            <h2>SOKCHO <span class="city-zh">束草</span></h2>
         </div>
 
         <!-- 卡片 18 -->
         <div class="spot-card" id="card18" onclick="expandCard('card18')">
-            <div class="card-collapsed">
-                <div class="spot-thumb"></div>
-                <div class="spot-info">
-                    <h3>束草海边同款 01</h3>
-                    <p>江原道束草市...</p>
-                </div>
-            </div>
-            <div class="card-details">
-                <a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>江原道束草市东海大路 1</p>
-                    <p class="detail-address"><strong>打卡说明：</strong>束草海边治愈系风景同款。</p>
-                </div>
-                <div class="detail-photos">
-                    <div>现场照片1</div>
-                    <div>同款照片2</div>
-                </div>
-            </div>
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>束草海边同款 01</h3><p>江原道束草市...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>江原道束草市东海大路 1</p></div></div>
         </div>
 
         <!-- 卡片 19 -->
         <div class="spot-card" id="card19" onclick="expandCard('card19')">
-            <div class="card-collapsed">
-                <div class="spot-thumb"></div>
-                <div class="spot-info">
-                    <h3>束草灯塔展望台 02</h3>
-                    <p>江原道束草市...</p>
-                </div>
-            </div>
-            <div class="card-details">
-                <a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>江原道束草市展望台路 2</p>
-                    <p class="detail-address"><strong>打卡说明：</strong>俯瞰束草全景的好去处。</p>
-                </div>
-                <div class="detail-photos">
-                    <div>现场照片1</div>
-                    <div>同款照片2</div>
-                </div>
-            </div>
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>束草灯塔展望台 02</h3><p>江原道束草市...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>江原道束草市展望台路 2</p></div></div>
         </div>
 
         <!-- 卡片 20 -->
         <div class="spot-card" id="card20" onclick="expandCard('card20')">
-            <div class="card-collapsed">
-                <div class="spot-thumb"></div>
-                <div class="spot-info">
-                    <h3>束草观光水产市场 03</h3>
-                    <p>江原道束草市...</p>
-                </div>
-            </div>
-            <div class="card-details">
-                <a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>江原道束草市中央路 3</p>
-                    <p class="detail-address"><strong>打卡说明：</strong>寻找同款炸鸡的美食打卡点。</p>
-                </div>
-                <div class="detail-photos">
-                    <div>现场照片1</div>
-                    <div>同款照片2</div>
-                </div>
-            </div>
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>束草观光水产市场 03</h3><p>江原道束草市...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>江原道束草市中央路 3</p></div></div>
         </div>
 
         <!-- 卡片 21 -->
         <div class="spot-card" id="card21" onclick="expandCard('card21')">
-            <div class="card-collapsed">
-                <div class="spot-thumb"></div>
-                <div class="spot-info">
-                    <h3>束草宁静海滩 04</h3>
-                    <p>江原道束草市...</p>
-                </div>
-            </div>
-            <div class="card-details">
-                <a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a>
-                <div class="detail-text-group">
-                    <p class="detail-address"><strong>详细地址：</strong>江原道束草市海边街 4</p>
-                    <p class="detail-address"><strong>打卡说明：</strong>安静散步的治愈系海岸线。</p>
-                </div>
-                <div class="detail-photos">
-                    <div>现场照片1</div>
-                    <div>同款照片2</div>
-                </div>
-            </div>
+            <div class="card-collapsed"><div class="spot-thumb"></div><div class="spot-info"><h3>束草宁静海滩 04</h3><p>江原道束草市...</p></div></div>
+            <div class="card-details"><a href="https://maps.google.com" target="_blank" class="map-btn-top" onclick="event.stopPropagation()">打开 Google Maps 导航 ↗</a><div class="detail-text-group"><p class="detail-address"><strong>详细地址：</strong>江原道束草市海边街 4</p></div></div>
         </div>
 
     </div>
