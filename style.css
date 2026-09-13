@@ -54,23 +54,22 @@ body {
     font-size: 13px;
     text-decoration: none;
     color: #666;
-    margin-bottom: 16px; /* 稍微调小一点返回链接和主标题的距离 */
+    margin-bottom: 16px;
     display: inline-block;
 }
 .back-link:hover { color: #111; }
 
-/* 主标题：把下方的间距改小，让它和首个小标题贴近 */
+/* 主标题 */
 h1 {
     font-size: 24px;
     margin-bottom: 12px; 
     letter-spacing: 0.5px;
 }
 
-/* 城市小标题样式：去掉底部黑线，缩减上下间距 */
+/* 城市小标题样式 */
 .city-section-title {
     margin-top: 16px;
     margin-bottom: 12px;
-    /* border-bottom 和 padding-bottom 已移除，彻底去掉黑线 */
 }
 .city-section-title h2 {
     font-size: 17px;
@@ -142,28 +141,51 @@ h1 {
     display: block;
 }
 
-/* 右上角导航按钮 */
-.map-btn-top {
+/* === 右上角按钮组容器（核心新增：支持同时放导航和视频按钮） === */
+.card-btn-group {
     position: absolute;
     top: 24px;
     right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 10;
+}
+
+/* Google Maps 导航按钮样式 */
+.map-btn-top {
     background: #111;
     color: #fff;
-    padding: 7px 14px;
-    border-radius: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
+    text-align: center;
     transition: background 0.2s ease, transform 0.1s ease;
-    z-index: 10;
 }
 .map-btn-top:hover { background: #333; }
 .map-btn-top:active { transform: scale(0.96); }
 
-/* 文字在上 */
+/* 视频直达按钮样式（粉色点缀，风格契合） */
+.video-btn-top {
+    background: #ff3366;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+.video-btn-top:hover { background: #e02e5b; }
+.video-btn-top:active { transform: scale(0.96); }
+
+/* 文字在上（增加右侧留白，防止被两行按钮挡住） */
 .detail-text-group {
     margin-bottom: 20px;
-    padding-right: 120px;
+    padding-right: 140px; 
 }
 .detail-address {
     font-size: 14px;
