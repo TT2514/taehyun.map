@@ -54,27 +54,26 @@ body {
     font-size: 13px;
     text-decoration: none;
     color: #666;
-    margin-bottom: 20px;
+    margin-bottom: 16px; /* 稍微调小一点返回链接和主标题的距离 */
     display: inline-block;
 }
 .back-link:hover { color: #111; }
 
-/* 主标题 */
+/* 主标题：把下方的间距改小，让它和首个小标题贴近 */
 h1 {
     font-size: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 12px; 
     letter-spacing: 0.5px;
 }
 
-/* 城市小标题样式（同行显示、字号比主标题小、带精致的下划线分隔） */
+/* 城市小标题样式：去掉底部黑线，缩减上下间距 */
 .city-section-title {
-    margin-top: 28px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #111;
-    padding-bottom: 8px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    /* border-bottom 和 padding-bottom 已移除，彻底去掉黑线 */
 }
 .city-section-title h2 {
-    font-size: 17px; /* 比主标题(24px)小，层级更分明 */
+    font-size: 17px;
     font-weight: 700;
     letter-spacing: 0.5px;
     color: #111;
@@ -83,7 +82,7 @@ h1 {
     font-size: 14px;
     font-weight: 400;
     color: #666;
-    margin-left: 6px; /* 英文和中文同行并保持一点间距 */
+    margin-left: 6px;
 }
 
 /* 卡片基础样式 */
