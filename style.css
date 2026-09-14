@@ -40,7 +40,7 @@ body {
     transform: scale(1.4);
 }
 
-/* 2. 右侧卡片区变成悬浮面板（带细腻阴影、左侧圆角，完美贴合参考图质感） */
+/* 2. 右侧卡片区变成悬浮面板 */
 .content-section {
     position: absolute;
     top: 0;
@@ -61,14 +61,34 @@ body {
     border-left: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.back-link {
-    font-size: 13px;
-    text-decoration: none;
-    color: #666;
-    margin-bottom: 16px;
+/* 千禧风浅粉色返回首页按键样式 */
+.y2k-back-btn {
     display: inline-block;
+    align-self: flex-start;
+    background-color: #fce4ec; /* 浅浅浅粉色 */
+    color: #555;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #f8bbd0;
+    box-shadow: 0 2px 5px rgba(252, 139, 171, 0.25);
+    transition: all 0.2s ease;
 }
-.back-link:hover { color: #111; }
+
+.y2k-back-btn:hover {
+    background-color: #f8bbd0;
+    color: #222;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(252, 139, 171, 0.4);
+}
+
+.y2k-back-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(252, 139, 171, 0.2);
+}
 
 /* 主标题 */
 h1 {
@@ -95,16 +115,21 @@ h1 {
     margin-left: 6px;
 }
 
-/* 卡片基础样式 */
+/* 卡片基础样式：去掉黑色细线框，改成千禧年白色网页窗口边框的微微阴影 */
 .spot-card {
     background: #fff;
-    border: 1px solid #111;
-    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.08); /* 极淡的边框或完全去掉 */
+    border-radius: 12px;
     padding: 16px;
     margin-bottom: 16px;
     cursor: pointer;
     position: relative;
-    transition: box-shadow 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); /* 千禧网页窗口微阴影 */
+    transition: all 0.25s ease;
+}
+
+.spot-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* 未展开时的简略布局 */
@@ -143,7 +168,7 @@ h1 {
 .spot-card.active {
     padding: 28px 24px 24px 24px;
     background: #fff;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
 }
 .spot-card.active .card-collapsed {
     margin-bottom: 20px;
@@ -251,6 +276,7 @@ h1 {
     background-color: #e57c96 !important;
 }
 .video-btn-top:active { transform: scale(0.96); }
+
 /* 只让地图的背景瓦片（图片）变成高级低饱和灰，粉色圆点保持绝对高亮！ */
 .leaflet-tile-pane {
     filter: grayscale(100%) contrast(85%) brightness(105%);
