@@ -19,6 +19,38 @@ body {
     z-index: 1;
 }
 
+/* 独立悬浮在地图左上角的千禧风返回首页按键 */
+.y2k-back-btn {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 1000; /* 确保在地图上方不被覆盖 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff9ebb 0%, #fc8bab 100%);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 50px; /* 完美的胶囊圆角 */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(252, 139, 171, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+}
+
+.y2k-back-btn:hover {
+    background: linear-gradient(135deg, #ff8da9 0%, #f7769a 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(252, 139, 171, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.y2k-back-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(252, 139, 171, 0.4);
+}
+
 .map-placeholder-box {
     text-align: center;
     color: #666;
@@ -40,14 +72,14 @@ body {
     transform: scale(1.4);
 }
 
-/* 2. 右侧卡片区变成悬浮面板 */
+/* 2. 右侧卡片区悬浮面板：顶部内边距设为24px，整体上调 */
 .content-section {
     position: absolute;
     top: 0;
     right: 0;
     width: 50%;
     height: 100vh;
-    padding: 40px;
+    padding: 24px 40px 40px 40px; /* 顶部间距缩减，让标题和卡片整体上移 */
     overflow-y: auto;
     background: #ffffff;
     display: flex;
@@ -61,36 +93,6 @@ body {
     border-left: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* 参考图胶囊风格的千禧风返回首页按键 */
-.y2k-back-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    align-self: flex-start;
-    background: linear-gradient(135deg, #ff9ebb 0%, #fc8bab 100%); /* 千禧粉色渐变 */
-    color: #fff;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 8px 20px;
-    margin-bottom: 24px;
-    text-decoration: none;
-    border-radius: 50px; /* 完美的胶囊圆角 */
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 4px 12px rgba(252, 139, 171, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-    transition: all 0.2s ease;
-}
-
-.y2k-back-btn:hover {
-    background: linear-gradient(135deg, #ff8da9 0%, #f7769a 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(252, 139, 171, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-.y2k-back-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(252, 139, 171, 0.4);
-}
-
 /* 主标题 */
 h1 {
     font-size: 24px;
@@ -100,8 +102,8 @@ h1 {
 
 /* 城市小标题样式 */
 .city-section-title {
-    margin-top: 16px;
-    margin-bottom: 12px;
+    margin-top: 12px;
+    margin-bottom: 10px;
 }
 .city-section-title h2 {
     font-size: 17px;
@@ -125,7 +127,7 @@ h1 {
     margin-bottom: 16px;
     cursor: pointer;
     position: relative;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); /* 稍微加深阴影 */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     transition: all 0.25s ease;
 }
 
