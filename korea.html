@@ -6,7 +6,7 @@
     <!-- 引入外部样式文件 -->
     <link rel="stylesheet" href="style.css">
     <!-- Leaflet 地图样式 -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         /* 补充复制地址按钮及粉色视频按钮的轻量级内联样式，可直接整合进 style.css */
         .copy-addr-btn {
@@ -36,13 +36,12 @@
 <body onclick="handleBodyClick(event)">
 
     <!-- 左侧地图区 -->
-<div class="map-section" id="map">
-    <!-- 原来的占位盒子整段删掉，Leaflet 会自动在这个容器里生成地图 -->
-</div>
+    <div class="map-section" id="map"></div>
 
     <!-- 右侧列表区 -->
     <div class="content-section">
-        <a href="index.html" class="back-link">← 返回首页</a>
+        <!-- 千禧风返回首页按键 -->
+        <a href="index.html" class="y2k-back-btn">返回首页</a>
         
         <!-- 大标题 -->
         <h1>TAEHYUN MAP - KOREA</h1>
@@ -586,7 +585,7 @@
                 console.error('复制失败', err);
             });
         }
-    </script> <!-- 注意这里补上了闭合标签 -->
+    </script>
 
     <!-- Leaflet 地图核心库 -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
