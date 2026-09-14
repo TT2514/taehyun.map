@@ -119,10 +119,10 @@ h1 {
     margin-left: 6px;
 }
 
-/* 卡片基础样式：底色换为 #f4f4f4，阴影加重更立体 */
+/* 卡片基础样式：底色 #f4f4f4，加上清晰的浅灰色细边框和立体阴影 */
 .spot-card {
     background: #f4f4f4;
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    border: 1px solid #dcdcdc; /* 明确的浅灰色细边框 */
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 16px;
@@ -133,6 +133,7 @@ h1 {
 }
 
 .spot-card:hover {
+    border-color: #c8c8c8; /* 悬停时边框稍微加深一点点，更有质感 */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     transform: translateY(-1px);
 }
