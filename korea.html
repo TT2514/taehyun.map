@@ -8,7 +8,6 @@
     <!-- Leaflet 地图样式 -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        /* 补充复制地址按钮及粉色视频按钮的轻量级内联样式，可直接整合进 style.css */
         .copy-addr-btn {
             display: inline-block;
             margin-left: 6px;
@@ -36,13 +35,13 @@
 <body onclick="handleBodyClick(event)">
 
     <!-- 左侧地图区 -->
-    <div class="map-section" id="map"></div>
+    <div class="map-section" id="map">
+        <!-- 移至左侧地图左上角的千禧风返回首页按键 -->
+        <a href="index.html" class="y2k-back-btn">返回首页</a>
+    </div>
 
     <!-- 右侧列表区 -->
     <div class="content-section">
-        <!-- 千禧风返回首页按键 -->
-        <a href="index.html" class="y2k-back-btn">返回首页</a>
-        
         <!-- 大标题 -->
         <h1>TAEHYUN MAP - KOREA</h1>
         
@@ -392,7 +391,7 @@
 
 
         <!-- ==================== 2. INCHEON / GANGHWA（仁川/江华岛）部分 ==================== -->
-        <div class="city-section-title" style="margin-top: 32px;">
+        <div class="city-section-title" style="margin-top: 24px;">
             <h2>INCHEON / GANGHWA <span class="city-zh">仁川/江华岛</span></h2>
         </div>
 
@@ -423,7 +422,7 @@
 
 
         <!-- ==================== 3. BUSAN（釜山）部分 ==================== -->
-        <div class="city-section-title" style="margin-top: 32px;">
+        <div class="city-section-title" style="margin-top: 24px;">
             <h2>BUSAN <span class="city-zh">釜山</span></h2>
         </div>
 
@@ -476,7 +475,7 @@
 
 
         <!-- ==================== 4. SOKCHO（束草）部分 ==================== -->
-        <div class="city-section-title" style="margin-top: 32px;">
+        <div class="city-section-title" style="margin-top: 24px;">
             <h2>SOKCHO <span class="city-zh">束草</span></h2>
         </div>
 
@@ -551,7 +550,7 @@
             <div class="card-collapsed">
                 <div class="spot-thumb"><img src="image/cheoksan_thumb.jpg" alt="尺山温泉休养村" style="width:100%; height:100%; object-fit:cover; border-radius:10px;"></div>
                 <div class="spot-info">
-                    <h3>尺山温泉休养村 (척산온천휴양촌)</h3>
+                    <h3>尺山温泉休养촌 (척산온천휴양촌)</h3>
                     <p>江原特别자치도 束草市</p>
                 </div>
             </div>
