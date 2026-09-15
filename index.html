@@ -49,6 +49,16 @@
             opacity: 0.5;
         }
 
+        /* ==========================================================
+           === 手机端适配 (宽度小于等于 768px 时取消首页背景图) ===
+           ========================================================== */
+        @media screen and (max-width: 768px) {
+            body {
+                background-image: none !important;
+                background-color: #f4f4f4 !important;
+            }
+        }
+        
         /* 粉色核心区域：按照你的最新可视化调整尺寸 */
         .hero-container {
             position: absolute;
