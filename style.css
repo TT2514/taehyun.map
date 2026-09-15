@@ -311,52 +311,50 @@ h1 {
    === 2. 手机端适配 (Smartphones：宽度小于等于 768px) ===
    ========================================================== */
 @media screen and (max-width: 768px) {
-    
-    /* --- 针对首页的优化：取消背景图片 --- */
-    body.index-body { /* 确保你的首页 body 有这个类，或者直接作用于手机端背景 */
-        background-image: none !important;
-        background-color: #f4f4f4 !important;
-    }
-
-    /* --- 针对 Korea 地图页的优化：只显示卡片区，隐藏地图 --- */
+    /* 1. 彻底隐藏左侧地图区，避免挤压 */
     .map-section {
-        display: none !important; /* 手机端直接隐藏地图，避免一半一半的挤压 */
+        display: none !important;
     }
 
+    /* 2. 让右侧卡片区强制撑满整个手机屏幕（全屏弹窗效果） */
     .content-section {
-        position: relative;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
         width: 100vw !important;
         height: 100vh !important;
-        right: auto;
-        left: 0;
-        top: 0;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 20px 16px;
+        max-width: none !important;
+        z-index: 9999 !important;
+        padding: 20px 16px !important;
+        overflow-y: auto !important;
+        background-color: #fff !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
     }
 
-    /* 手机端卡片展开后，调整按钮和文字布局，防止重叠 */
+    /* 3. 展开卡片后内部元素的防挤压优化 */
     .spot-card.active {
-        padding: 24px 16px 16px 16px;
+        padding: 24px 16px 16px 16px !important;
     }
 
     .card-btn-group {
-        position: relative;
-        top: auto;
-        right: auto;
-        flex-direction: row; /* 手机上按钮横向排列更好点按 */
-        gap: 8px;
-        margin-bottom: 14px;
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        display: flex !important;
+        flex-direction: row !important; /* 手机上按钮横向排列 */
+        gap: 10px !important;
+        margin-bottom: 16px !important;
     }
 
     .map-btn-top, .video-btn-top {
-        flex: 1;
-        text-align: center;
-        padding: 8px 10px;
-        font-size: 12px;
+        flex: 1 !important;
+        text-align: center !important;
+        padding: 10px !important;
+        font-size: 13px !important;
     }
 
     .detail-text-group {
-        padding-right: 0; /* 手机上取消预留空间 */
+        padding-right: 0 !important; /* 手机上取消预留空间 */
     }
 }
