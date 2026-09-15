@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Korea - Taehyun Map</title>
     <!-- 引入外部样式文件 -->
     <link rel="stylesheet" href="style.css">
@@ -39,7 +40,7 @@
 
     <!-- 右侧列表区 -->
     <div class="content-section">
-        <!-- 千禧风返回首页按键（放在右侧面板左上角） -->
+        <!-- 千禧风返回首页按键 -->
         <a href="index.html" class="y2k-back-btn">返回首页</a>
 
         <!-- 大标题 -->
@@ -569,27 +570,8 @@
 
     </div>
 
-    <!-- 复制功能脚本 -->
-    <script>
-        function copyText(elementId) {
-            const text = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                const btn = event.target;
-                const originalText = btn.innerText;
-                btn.innerText = '✅ 已复制';
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                }, 1500);
-            }).catch(err => {
-                console.error('复制失败', err);
-            });
-        }
-    </script>
-
     <!-- Leaflet 地图核心库 -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-    <!-- 你的主脚本文件 -->
     <script src="main.js"></script>
 </body>
 </html>
