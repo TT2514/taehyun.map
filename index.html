@@ -50,12 +50,50 @@
         }
 
         /* ==========================================================
-           === 手机端适配 (宽度小于等于 768px 时取消首页背景图) ===
+           === 手机端适配 (宽度小于等于 768px 首页优化) ===
            ========================================================== */
         @media screen and (max-width: 768px) {
             body {
-                background-image: none !important;
+                background: none !important;
                 background-color: #f4f4f4 !important;
+            }
+            .hero-container {
+                width: 88vw !important;
+                height: auto !important;
+                padding: 40px 20px !important;
+                transform: translate(-50%, -50%) !important;
+            }
+            .hero-container h1 {
+                transform: none !important;
+                letter-spacing: -2px !important;
+                margin-bottom: 20px !important;
+            }
+            /* 适配手机端字号，防止换行和过小 */
+            .line-1 .t1 { font-size: 42px !important; }
+            .line-1 .a1 { font-size: 34px !important; }
+            .line-1 .e  { font-size: 38px !important; }
+            .line-1 .h  { font-size: 40px !important; }
+            .line-1 .y  { font-size: 36px !important; }
+            .line-1 .u  { font-size: 38px !important; }
+            .line-1 .n  { font-size: 36px !important; }
+            
+            .line-2 {
+                margin-top: -5px !important;
+            }
+            .line-2 .m  { font-size: 42px !important; }
+            .line-2 .a2 { font-size: 36px !important; }
+            .line-2 .p  { font-size: 40px !important; }
+
+            .btn-korea {
+                transform: none !important;
+                padding: 12px 36px !important;
+                font-size: 15px !important;
+                letter-spacing: 2px !important;
+            }
+            .footer-note {
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                bottom: 20px !important;
             }
         }
         
