@@ -15,11 +15,13 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* 根元素锁死，杜绝滚动条 */
+        /* 强制根元素和body完全贴合屏幕，消除所有白边 */
         html, body {
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow: hidden; /* 防止首页出现滚动条产生白边 */
         }
 
         body {
@@ -35,7 +37,7 @@
             transition: background-image 0.5s ease-in-out;
         }
 
-        /* 背景图上的柔和通透遮罩 */
+        /* 背景图上的柔和通透遮罩，让白色网格和粉框更有层次感 */
         body::after {
             content: "";
             position: absolute;
@@ -56,7 +58,7 @@
             opacity: 0.5;
         }
         
-        /* 粉色核心区域 */
+        /* 粉色核心区域：按照你的最新可视化调整尺寸 */
         .hero-container {
             position: absolute;
             top: 50%;
@@ -89,6 +91,7 @@
             transform: translate(-4px, 16px);
         }
 
+        /* 第一行：TAEHYUN */
         .line-1 {
             display: flex;
             align-items: flex-end;
@@ -101,6 +104,7 @@
         .line-1 .u  { font-size: 140px; }
         .line-1 .n  { font-size: 130px; }
 
+        /* 第二行：MAP */
         .line-2 {
             display: flex;
             align-items: flex-start;
@@ -110,6 +114,7 @@
         .line-2 .a2{ font-size: 125px; }
         .line-2 .p { font-size: 140px; }
 
+        /* KOREA 按钮：按最新偏移量定位 */
         .btn-korea {
             display: inline-block;
             padding: 9px 30px;
@@ -128,6 +133,7 @@
             color: #fff;
         }
 
+        /* 左下角署名 */
         .footer-note {
             position: absolute;
             bottom: 25px;
@@ -144,25 +150,21 @@
            === 手机端适配 (宽度小于等于 768px 首页优化) ===
            ========================================================== */
         @media screen and (max-width: 768px) {
-            /* 用绝对定位拉伸撑满整个屏幕视口，彻底消灭上下白边，同时保证背景图正常渲染 */
             html, body {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                right: 0 !important;
-                bottom: 0 !important;
-                width: 100vw !important;
-                height: 100vh !important;
-                height: 100dvh !important;
-                overflow: hidden !important;
+                overflow-y: auto; 
             }
 
             body {
-                background-size: cover !important;
-                background-position: center center !important;
+                background: url('image/bg-mobile.jpg') !important;
+                background-size: cover !important; /* 等比例放大铺满，有些边缘超出去也没关系 */
+                background-position: center center !important; /* 居中显示，裁掉两边或上下最自然的区域 */
                 background-repeat: no-repeat !important;
+                height: 100vh !important;
+                height: 100dvh !important; /* 完美适配手机动态视口高度，锁死没有白边 */
+                overflow: hidden !important;
             }
             
+            /* 严格应用锁定的粉框尺寸，保持精致大小 */
             .hero-container {
                 width: 351.35px !important;
                 height: 169px !important;
@@ -170,12 +172,14 @@
                 padding: 15px !important;
             }
             
+            /* 优化手机端大字在小粉框里的对齐与间距 */
             .hero-container h1 {
                 transform: none !important;
                 letter-spacing: -2.5px !important;
                 margin-bottom: 8px !important;
             }
             
+            /* 手机端放大字号，让它和电脑端一样饱满霸气 */
             .line-1 .t1 { font-size: 78px !important; }
             .line-1 .a1 { font-size: 61px !important; }
             .line-1 .e  { font-size: 68px !important; }
@@ -208,6 +212,7 @@
 </head>
 <body>
 
+    <!-- 中间横长方形粉色区域 -->
     <div class="hero-container">
         <h1>
             <div class="line-1">
@@ -220,6 +225,7 @@
         <a href="korea.html" class="btn-korea">KOREA</a>
     </div>
 
+    <!-- 左下角署名 -->
     <div class="footer-note">Made by TT</div>
 
     <script>
