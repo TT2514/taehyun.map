@@ -311,12 +311,12 @@ h1 {
         display: none !important;
     }
 
+    /* 强制面板使用绝对的视口高度，吞掉上下工具栏白边 */
     .content-section {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         width: 100vw !important;
-        /* 同样把高度改成动态视口高度，确保完美覆盖 */
         height: 100vh !important;
         height: 100dvh !important; 
         max-width: none !important;
