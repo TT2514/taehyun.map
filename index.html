@@ -156,9 +156,12 @@
 
             body {
                 background: url('image/bg-mobile.jpg') !important;
-                background-size: cover !important;
-                background-position: center !important;
+                background-size: cover !important; /* 等比例放大铺满，有些边缘超出去也没关系 */
+                background-position: center center !important; /* 居中显示，裁掉两边或上下最自然的区域 */
                 background-repeat: no-repeat !important;
+                height: 100vh !important;
+                height: 100dvh !important; /* 完美适配手机动态视口高度，锁死没有白边 */
+                overflow: hidden !important;
             }
             
             /* 严格应用锁定的粉框尺寸，保持精致大小 */
