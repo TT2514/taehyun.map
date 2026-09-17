@@ -304,18 +304,20 @@ h1 {
 
 
 /* ==========================================================
-   === 2. 手机端适配 (Smartphones：宽度小于等于 768px) ===
+   === 手机端适配 (Smartphones：宽度小于等于 768px) ===
    ========================================================== */
 @media screen and (max-width: 768px) {
     .map-section {
         display: none !important;
     }
 
-    /* 强制面板使用绝对的视口高度，吞掉上下工具栏白边 */
+    /* 用绝对定位拉伸撑满整个屏幕视口，彻底消灭上下白边 */
     .content-section {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
         width: 100vw !important;
         height: 100vh !important;
         height: 100dvh !important; 
