@@ -4,8 +4,11 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: #f4f4f4;
     color: #111;
-    height: 100vh;
-    overflow: hidden;
+    /* 核心修改：将 height 改为 min-height 并引入 dvh，防止手机上下白边 */
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden; 
     position: relative;
 }
 
