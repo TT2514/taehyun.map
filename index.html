@@ -55,8 +55,11 @@
            ========================================================== */
         @media screen and (max-width: 768px) {
             body {
-                background: none !important;
-                background-color: #f4f4f4 !important;
+                /* 核心修改：将 none 改为你的手机端背景图片路径，并保持居中cover铺满 */
+                background: url('image/bg-mobile.jpg') !important;
+                background-size: cover !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
             }
             .hero-container {
                 width: 88vw !important;
