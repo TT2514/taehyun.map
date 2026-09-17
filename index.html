@@ -14,17 +14,23 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        /* 强制根元素和body完全贴合屏幕，消除所有白边 */
+        html, body {
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow: hidden; /* 防止首页出现滚动条产生白边 */
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             color: #111;
-            width: 100%;
-            min-height: 100vh;
-            min-height: 100dvh; 
             display: flex;
             position: relative;
-            overflow-x: hidden; /* 防止横向溢出 */
             
-            /* 铺满屏幕的动态背景图设置 */
+            /* 首页电脑端背景图设置 */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -144,48 +150,52 @@
            === 手机端适配 (宽度小于等于 768px 首页优化) ===
            ========================================================== */
         @media screen and (max-width: 768px) {
+            html, body {
+                overflow-y: auto; 
+            }
+
             body {
                 background: url('image/bg-mobile.jpg') !important;
                 background-size: cover !important;
                 background-position: center !important;
                 background-repeat: no-repeat !important;
-                min-height: 100vh !important;
-                min-height: 100dvh !important;
             }
             
+            /* 保持你想要的粉色方框大小，同时确保手机上能完美包住字 */
             .hero-container {
-                width: 88vw !important;
-                height: auto !important;
-                padding: 40px 20px !important;
+                width: 90vw !important;
+                max-width: 420px !important;
+                height: 240px !important;
+                padding: 20px !important;
             }
             
             .hero-container h1 {
                 transform: none !important;
-                letter-spacing: -2px !important;
-                margin-bottom: 20px !important;
+                letter-spacing: -2.5px !important;
+                margin-bottom: 12px !important;
             }
             
-            /* 适配手机端字号，防止换行和过小 */
-            .line-1 .t1 { font-size: 42px !important; }
-            .line-1 .a1 { font-size: 34px !important; }
-            .line-1 .e  { font-size: 38px !important; }
-            .line-1 .h  { font-size: 40px !important; }
-            .line-1 .y  { font-size: 36px !important; }
-            .line-1 .u  { font-size: 38px !important; }
-            .line-1 .n  { font-size: 36px !important; }
+            /* 手机端放大字号，让它和电脑端一样饱满霸气 */
+            .line-1 .t1 { font-size: 78px !important; }
+            .line-1 .a1 { font-size: 61px !important; }
+            .line-1 .e  { font-size: 68px !important; }
+            .line-1 .h  { font-size: 73px !important; }
+            .line-1 .y  { font-size: 63px !important; }
+            .line-1 .u  { font-size: 71px !important; }
+            .line-1 .n  { font-size: 66px !important; }
             
             .line-2 {
-                margin-top: -5px !important;
+                margin-top: -10px !important;
             }
-            .line-2 .m  { font-size: 42px !important; }
-            .line-2 .a2 { font-size: 36px !important; }
-            .line-2 .p  { font-size: 40px !important; }
+            .line-2 .m  { font-size: 75px !important; }
+            .line-2 .a2 { font-size: 63px !important; }
+            .line-2 .p  { font-size: 70px !important; }
 
             .btn-korea {
                 transform: none !important;
-                padding: 12px 36px !important;
-                font-size: 15px !important;
-                letter-spacing: 2px !important;
+                padding: 8px 26px !important;
+                font-size: 13px !important;
+                letter-spacing: 1.5px !important;
             }
             
             .footer-note {
